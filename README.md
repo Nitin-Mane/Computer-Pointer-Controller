@@ -17,7 +17,7 @@ To get these inputs, you will have to use three other OpenVino models:
 The Pipeline
 You will have to coordinate the flow of data from the input, and then amongst the different models and finally to the mouse controller. The flow of data will look like this:
 
-[!](./media/pipeline.png)
+[ ](./media/pipeline.png)
 
 ## Project Set Up and Installation
 *TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
