@@ -23,7 +23,7 @@ The coordination of the the flow data from the input, and then amongst the diffe
 The flow chart represent the process of the controlling the mouse pointer based on the human gestures of face tracking and eyes movements. The eyes are important factor for this project. The first process is passed with the model inference with detecting the face region and it help to focus on the main features which is higlighted with the position of the person looking at the region this will crop the image and resize the important features mapped on the region. After processing the face region next process is on the head pose estimation module which will track the person face moving direction in 3 axis. the x and y axis is the movement to the left and right where the z-axis represent the up and down movements. The head pose estimation are shown with the angles direction. Similarly the landmark detection module detect the eyes, nose, lips and chin of the human face. In this process the left and right eyes are cropped and sized with the mapped region. the gaze estimation model requires all three input model based on the model prediction the gaze provide the direction movement of the eyes look at each direction and the face movement. The mouse cursor is set with the eyes direction as the gaze and the landmark estimation region mapped with the eyes looking at the features it represent the focus direction where the head pose provide the angle of the movement which the cursor move based on the person look at any corner or edge direction from the box region. 
 
 ## Project Set Up and Installation
-*TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
+The project is based on the deep learning model inference API networking and demonstrating the outcome of controlling the mouse gesture using the face detection model and AI rules based operations. The process holds the lots of procedure to form the progress and set the outcome at the each setup scales.
 
 ### Project Setup 
 
@@ -72,7 +72,6 @@ then install the packages requested from the IDE
 
 ` pip install requests `
 
-
 this will create better results compared to others techniques. 
 
 4. Initialize the python 3.6.5 working with the OpenVINO toolkit.
@@ -87,7 +86,6 @@ we only require to initialize the Openvino environment for execution operation.
 ```
 cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
 setupvars.bat
-
 ```
 
 After processing you will get the same outcome mentioned in the pic
@@ -98,9 +96,7 @@ After processing you will get the same outcome mentioned in the pic
 Go to the downloader directory 
 
 ```
-
 cd C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\
-
 ```
 
 ![Downloader](./media/installation/pic-002.png)
@@ -117,9 +113,7 @@ python downloader.py --name "face-detection-adas-binary-0001" -o "C:\Users\Nitin
 Head Pose Estimation Model 
 
 ```
-
 python downloader.py --name "head-pose-estimation-adas-0001" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
-
 ```
 
 ![Model-02](./media/installation/pic-008.png)
@@ -127,9 +121,7 @@ python downloader.py --name "head-pose-estimation-adas-0001" -o "C:\Users\Nitin-
 landmarks regression Model 
 
 ```
-
 python downloader.py --name "landmarks-regression-retail-0009" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
-
 ```
 
 ![model-03](./media/installation/pic-007.png)
@@ -137,9 +129,7 @@ python downloader.py --name "landmarks-regression-retail-0009" -o "C:\Users\Niti
 Gaze Estimation Model 
 
 ```
-
 python downloader.py --name "gaze-estimation-adas-0002" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
-
 ```
 
 ![Model-Installation-01](./media/installation/pic-006.png)
@@ -149,16 +139,12 @@ python downloader.py --name "gaze-estimation-adas-0002" -o "C:\Users\Nitin-Mane\
 1. Clone this git repository into your local machine.
 
 ```
-
 git clone https://github.com/Nitin-Mane/Computer-Pointer-Controller.git
-
 ```
 2. go to the direcotry path
 
 ```
-
  cd Computer-Pointer-Controller 
-
 ```
 
 3. install the packages required 
@@ -291,6 +277,7 @@ C:.
 ```
 
 ### Default instruction input:
+This will only process the input arguments and only check the frames outcome with no detection or any progress. this is just for analysis and testing the code samples.
 
 ```
 python main.py -i bin/demo.mp4 \ 
@@ -307,6 +294,7 @@ python main.py -i bin/demo.mp4 \
 ```
 
 ### Face Detection Command: 
+The input model which are process are first analysed with the Face Detection. This help to find the region of ROI and set the outcome of the person face in the frames which then process the detection method to get the frame shape. 
 
 ```
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_fd
@@ -314,6 +302,7 @@ python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16
 ```
 
 ### Head Pose Command: 
+The head pose estimation helps to find the pose and the direction of the person facing camera and process which way the user is looking at the angle and the model generate the x, y and z-axis which helps to find the pose estimation in the 3D region. 
 
 ```
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_hp
@@ -321,27 +310,31 @@ python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16
 ```
 
 ### Landmark Estimation Detection 
+The landmarks Estimation is the process for finding the region of the human face in the facial recoginition the model aspect finds the region of the eyes, nose, lips and chins which process to find the edge detection and map the region with the progressive region.
 
 ```
-
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_lm
-
 ```
 
 ### Gaze Estimation Detection 
+The gaze estimation is the gesture points estimation tracking model which takes all the three model input and process it in such a way that it can show the region the user is looking and process it in real-time operation. the estimation is the combination of the facial detection and the pose estimation which provide the face and its postion masking and which the landmarks region changes the focus point of region also changes with the detection of eyes, nose and lips. In this case the main focus is given on the eyes and nose region.
 
 ```
-
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_gm
-
 ```
 
 ### Mouse Controller Detection 
+The mouse controller detection is processed with the deep learning inference model which provide 3 different parameters and when the estimation rules match the requirement data of the the angle, pose and direction. the mose cursor is set to the control with the help of face detection algorithm for moving the direction where the eyes are looking and head pose is moving left, right, up and down. 
 
 ```
-
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_mc
+```
 
+#### All model execution and mouse control
+This is execution of overall running the model and checking the outcome mapped on the window screen.
+
+```
+python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_fc -o_hp _o_lm -o_gm -o_mc
 ```
 
 ## Documentation
