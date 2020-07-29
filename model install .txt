@@ -1,0 +1,37 @@
+cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
+
+setupvars.bat
+
+cd C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\
+
+python downloader.py --name "face-detection-adas-binary-0001" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
+
+python downloader.py --name "gaze-estimation-adas-0002" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
+
+python downloader.py --name "landmarks-regression-retail-0009" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
+
+python downloader.py --name "head-pose-estimation-adas-0001" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
+
+python downloader.py --name "face-detection-retail-0004" -o C:\Users\Nitin-Mane\Documents\Intel\OpenVINO\openvino_models
+python downloader.py --name "face-detection-adas-0001" -o C:\Users\Nitin-Mane\Documents\Intel\OpenVINO\openvino_models
+python downloader.py --name "landmarks-regression-retail-0009" -o C:\Users\Nitin-Mane\Documents\Intel\OpenVINO\openvino_models
+python downloader.py --name "face-reidentification-retail-0095" -o C:\Users\Nitin-Mane\Documents\Intel\OpenVINO\openvino_models
+
+python downloader.py --name "face-detection-adas-0001" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
+
+
+python_demos\face_recognition_demo>python ./face_recognition_demo.py -m_fd C:/Users/Nitin-Mane/Documents/Intel/OpenVINO/openvino_models/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.xml -m_lm C:/Users/Nitin-Mane/Documents/Intel/OpenVINO/openvino_models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_reid C:/Users/Nitin-Mane/Documents/Intel/OpenVINO/openvino_models/intel/face-reidentification-retail-0095/FP16/face-reidentification-retail-0095.xml  --verbose  -fg "C:/Users/Nitin-Mane/Documents/Github/Computer-Pointer-Controller/bin/demo.mp4" -d_fd MYRIAD -d_lm MYRIAD -d_reid MYRIAD
+
+
+python downloader.py --name "human-pose-estimation-3d-0001" -o C:\Users\Nitin-Mane\Documents\Intel\OpenVINO\openvino_models
+
+python human_pose_estination_3d_demo.py 
+-m /home/user/human-pose-estimation-3d-0001.xml 
+-i C:/Users/Nitin-Mane/Documents/Github/Computer-Pointer-Controller/bin
+
+
+python mo.py --input_model_is_text C:/Users/Nitin-Mane/Documents/Intel/OpenVINO/openvino_models/public/human-pose-estimation-3d-0001/human-pose-estimation-3d-0001.pth --model_name human-pose-estimation-3d-0001 --output_dir C:/Users/Nitin-Mane/Documents/Intel/OpenVINO/openvino_models --input_shape [1,128,19,38] 
+
+
+
+

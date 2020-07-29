@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+######################################################################################################
+#
+#                             Mouse Controller Script
+#
+######################################################################################################
+
 '''
 This is a sample class that you can use to control the mouse pointer.
 It uses the pyautogui library. You can set the precision for mouse movement
@@ -9,7 +17,7 @@ This class is provided to help get you started; you can choose whether you want 
 '''
 import pyautogui
 
-class MouseController:
+class Mouse_Controller_Pointer:
     def __init__(self, precision, speed):
         precision_dict={'high':100, 'low':1000, 'medium':500}
         speed_dict={'fast':1, 'slow':10, 'medium':5}

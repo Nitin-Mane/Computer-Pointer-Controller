@@ -1,6 +1,17 @@
+#!/usr/bin/env python3
+
+#########################################################################################################
+#
+#                                        Model Script
+#
+#########################################################################################################
+
+
 '''
 This is a sample class for a model. You may choose to use it as-is or make any changes to it.
 This has been provided just to give you an idea of how to structure your model class.
+
+This script is just for reference for creating the multiple copies.s
 '''
 
 class Model_X:
