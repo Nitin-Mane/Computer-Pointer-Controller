@@ -338,7 +338,7 @@ python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16
 ```
 
 ## Documentation
-*TODO:* Include any documentation that users might need to better understand your project code. For instance, this is a good place to explain the command line arguments that your project supports.
+The computer pointer controller has many features which is demonstrated in the documentation. The primary focus was to execute the code and run all the model outcome in instance.
 
 ### Project Command Line Arguments
 
@@ -418,7 +418,30 @@ optional arguments:
 
 
 ## Benchmarks
-*TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
+
+The benchmark results of running models on multiple hardwares and multiple model precisions was not possible due to the limitation of the resource. for more infomation please check MyDoc.md file.
+
+
+
+#### Benchmark for FP16
+
+Input Model | Model Loading | Inference Time | FPS |
+------------ | ------------- |---------------|-----|
+Face Detection | 3.76        |  120          | 3.32|
+Head Pose Est  | 0.87        |  180          | 3.70|
+LandMark Detection | 1.11    | 150           | 3.83|
+Gaze Estimation    | 0.11    | 170           | 3.50|
+All model          | 0.10    | 140           | 3.58|
+
+#### benchmark for FP32 
+
+Input Model | Model Loading | Inference Time | FPS |
+------------ | ------------- |---------------|-----|
+Face Detection | 0.79        |  195          | 3.35|
+Head Pose Est  | 0.12        |  180          | 3.92|
+LandMark Detection | 0.15    | 175           | 3.52|
+Gaze Estimation    | 0.12    | 185           | 3.78|
+All model          | 0.12    | 170           | 3.58|
 
 ## Results
 *TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
