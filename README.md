@@ -93,7 +93,7 @@ setupvars.bat
 ```
 
 After processing you will get the same outcome mentioned in the pic
-![image-02](./installation/pic-001.png)
+![image-02](./media/installation/pic-001.png)
 
 ### Downloading the Intel Models from OpenVINO toolkit
 
@@ -104,7 +104,7 @@ cd C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_dow
 
 ```
 
-![Downloader](./installation/pic-002.png)
+![Downloader](./media/installation/pic-002.png)
 
 Face Detection Model 
 
@@ -113,7 +113,7 @@ python downloader.py --name "face-detection-adas-binary-0001" -o "C:\Users\Nitin
 
 ```
 
-![Model-02](./installation/pic-005.png)
+![Model-02](./media/installation/pic-005.png)
 
 Head Pose Estimation Model 
 
@@ -123,7 +123,7 @@ python downloader.py --name "head-pose-estimation-adas-0001" -o "C:\Users\Nitin-
 
 ```
 
-![Model-02](./installation/pic-008.png)
+![Model-02](./media/installation/pic-008.png)
 
 landmarks regression Model 
 
@@ -133,7 +133,7 @@ python downloader.py --name "landmarks-regression-retail-0009" -o "C:\Users\Niti
 
 ```
 
-![model-03](./installation/pic-007.png)
+![model-03](./media/installation/pic-007.png)
 
 Gaze Estimation Model 
 
@@ -143,7 +143,7 @@ python downloader.py --name "gaze-estimation-adas-0002" -o "C:\Users\Nitin-Mane\
 
 ```
 
-![Model-Installation-01](./installation/pic-006.png)
+![Model-Installation-01](./media/installation/pic-006.png)
 
 ## Demo
 
@@ -249,6 +249,11 @@ C:.
 │           └───FP32-INT8
 │                   landmarks-regression-retail-0009.bin
 │                   landmarks-regression-retail-0009.xml
+│
+├───notebook
+│       1. Create the Python Script.ipynb
+│       2. Create Job Submission Script.ipynb
+│       3.Computer_Pointer_Controller_Benchmark.ipynb
 │
 ├───results
 │       outcome01
