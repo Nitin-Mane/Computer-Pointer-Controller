@@ -57,23 +57,23 @@ It is more reliable and have many tools for visualization data. It best for the 
 1. Download the Anaconda IDE 
 2. As the Anaconda comes with the 3.7.1 version we need to use older version 
 3. Create the virtual environment using following command as we are installing python 3.6.5 version. 
-''' 
-conda create --name myenv
-'''
+ 
+`conda create --name myenv`
+
 
 Create env for python 3.6
 '''
-conda create -n myenv python=3.6
+`conda create -n myenv python=3.6`
 '''
 
 after that activate the environment 
 '''
-activate 
+` activate ` 
 '''
 
 then install the packages requested from the IDE 
 '''
-pip install requests
+` pip install requests `
 '''
 this will create better results compared to others techniques. 
 
@@ -86,102 +86,201 @@ first, open windows and slide to the Anaconda folder and select the Anaconda pro
 follow the OpenVINO Step mention in the [link](https://docs.openvinotoolkit.org/2020.1/_docs_install_guides_installing_openvino_windows.html)
 we only require to initialize the Openvino environment to execute. 
  Open the Command Prompt, and run the setupvars.bat batch file to temporarily set your environment variables:
- '''
+
+```
 cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
 setupvars.bat
-'''
+```
+
 After processing you will get the same outcome mentioned in the pic
 ![image-02](./installation/pic-001.png)
 
 ### Downloading the Intel Models from OpenVINO toolkit
 
 Go to the downloader directory 
-'''
+```
+
 cd C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\
-'''
+
+```
+
 ![Downloader](./installation/pic-002.png)
 
 Face Detection Model 
-'''
+
+```
 python downloader.py --name "face-detection-adas-binary-0001" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
-'''
+
+```
+
 ![Model-02](./installation/pic-005.png)
 
 Head Pose Estimation Model 
-'''
+
+```
+
 python downloader.py --name "head-pose-estimation-adas-0001" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
-'''
+
+```
+
 ![Model-02](./installation/pic-008.png)
 
 landmarks regression Model 
-'''
+
+```
+
 python downloader.py --name "landmarks-regression-retail-0009" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
-'''
+
+```
+
 ![model-03](./installation/pic-007.png)
 
 Gaze Estimation Model 
-'''
+
+```
+
 python downloader.py --name "gaze-estimation-adas-0002" -o "C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller\models"
-'''
+
+```
+
 ![Model-Installation-01](./installation/pic-006.png)
 
 ## Demo
 
 1. Clone this git repository into your local machine.
 
-'''
+```
+
 git clone https://github.com/Nitin-Mane/Computer-Pointer-Controller.git
-'''
+
+```
 2. go to the direcotry path
 
-'''
-cd Computer-Pointer-Controller
-'''
+
+` cd Computer-Pointer-Controller `
+
 3. install the packages required 
 
-'''
-pip3 install -r requirements.txt
-'''
+
+` pip3 install -r requirements.txt `
+
 
 Note: You have to be in the same env which you have created earlier and dont close the previous window.
 
 The project tree are follows 
 
-(py365) C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller>tree
+```
+(py365) C:\Users\Nitin-Mane\Documents\Github\Computer-Pointer-Controller>tree /f
 Folder PATH listing
 Volume serial number is A8AC-AAC7
 C:.
+│   .Instructions.md.swp
+│   main.py
+│   model install .txt
+│   MyDoc.md
+│   README.md
+│   requirements.txt
+│
 ├───.vscode
+│       settings.json
+│
 ├───bin
+│       .gitkeep
+│       demo.mp4
+│
 ├───media
-│   ├───benchmark
-│   └───installation
+│       pipeline.png
+│
 ├───models
 │   └───intel
 │       ├───face-detection-adas-0001
 │       │   ├───FP16
+│       │   │       face-detection-adas-0001.bin
+│       │   │       face-detection-adas-0001.xml
+│       │   │
 │       │   ├───FP32
+│       │   │       face-detection-adas-0001.bin
+│       │   │       face-detection-adas-0001.xml
+│       │   │
 │       │   └───FP32-INT8
+│       │           face-detection-adas-0001.bin
+│       │           face-detection-adas-0001.xml
+│       │
 │       ├───face-detection-adas-binary-0001
 │       │   └───FP32-INT1
+│       │           face-detection-adas-binary-0001.bin
+│       │           face-detection-adas-binary-0001.xml
+│       │
 │       ├───gaze-estimation-adas-0002
 │       │   ├───FP16
+│       │   │       gaze-estimation-adas-0002.bin
+│       │   │       gaze-estimation-adas-0002.xml
+│       │   │
 │       │   ├───FP32
+│       │   │       gaze-estimation-adas-0002.bin
+│       │   │       gaze-estimation-adas-0002.xml
+│       │   │
 │       │   └───FP32-INT8
+│       │           gaze-estimation-adas-0002.bin
+│       │           gaze-estimation-adas-0002.xml
+│       │
 │       ├───head-pose-estimation-adas-0001
 │       │   ├───FP16
+│       │   │       head-pose-estimation-adas-0001.bin
+│       │   │       head-pose-estimation-adas-0001.xml
+│       │   │
 │       │   ├───FP32
+│       │   │       head-pose-estimation-adas-0001.bin
+│       │   │       head-pose-estimation-adas-0001.xml
+│       │   │
 │       │   └───FP32-INT8
+│       │           head-pose-estimation-adas-0001.bin
+│       │           head-pose-estimation-adas-0001.xml
+│       │
 │       └───landmarks-regression-retail-0009
 │           ├───FP16
+│           │       landmarks-regression-retail-0009.bin
+│           │       landmarks-regression-retail-0009.xml
+│           │
 │           ├───FP32
+│           │       landmarks-regression-retail-0009.bin
+│           │       landmarks-regression-retail-0009.xml
+│           │
 │           └───FP32-INT8
-├───notebook
+│                   landmarks-regression-retail-0009.bin
+│                   landmarks-regression-retail-0009.xml
+│
 ├───results
+│       outcome01
+│
 ├───src
+│   │   face_detection.py
+│   │   gaze_Estimator.py
+│   │   head_position_estimation.py
+│   │   input_feeder.py
+│   │   landmark_detection.py
+│   │   model.py
+│   │   model_feeder.py
+│   │   mouse_controller.py
+│   │   mouse_process.py
+│   │
 │   └───__pycache__
+│           face_detection.cpython-36.pyc
+│           gaze_Estimator.cpython-36.pyc
+│           head_position_estimation.cpython-36.pyc
+│           landmark_detection.cpython-36.pyc
+│           model_feeder.cpython-36.pyc
+│           mouse_controller.cpython-36.pyc
+│           mouse_process.cpython-36.pyc
+│
 └───utils
+    │   helper.py
+    │   ie_module.py
+    │
     └───__pycache__
+            helper.cpython-36.pyc
+            ie_module.cpython-36.pyc
+```
 
 ### Default instruction input:
 '''
