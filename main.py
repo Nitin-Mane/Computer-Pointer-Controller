@@ -167,7 +167,7 @@ def build_argparser():
                          help="(optional) Auto-pause after each frame")
 
     parser.add_argument('-o', '--output', metavar="PATH", default="",
-                         help="(optional) Path to save the output video to")
+                         help="(optional) Path to save the output video to directory")
 
 
     return (parser)
