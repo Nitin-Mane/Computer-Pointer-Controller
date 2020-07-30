@@ -444,16 +444,33 @@ Gaze Estimation    | 0.12    | 185           | 3.78|
 All model          | 0.12    | 170           | 3.58|
 
 ## Results
-*TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
+
+As the models are processed on the MYRIAD this are the results based on the runtime resouces. 
+
+1. The Inference time is not much difference for both different precision models. Among this two precision, FP32 is higher because of higher precision value.
+2. The FPS is also similar to the inference time. That's mean smaller difference for this two precision models scale.
+3. In, Model Loading time, FP16 precision model's time is much higher than FP32 because combination of precisions lead to higher weight of the model.
 
 ## Stand Out Suggestions
-This is where you can provide information about the stand out suggestions that you have attempted.
+
+### Optimization in Deep Learning Inference Engine
+
+- Model Inference or Execution : The model can be optimize and process for the inference based on the latency and its performance scale as per the accuray results. As Inference Engine consumed the IR to perform inference API for the plugins device. this may be drastically changes in selection hardware. The Performance flow is depend on the network load and inference engine services.
+- Deep Learning WorkBench : The IR can be set as per the user demands and comes under the aspects of the changing time services and its cases on the production cases.
 
 ### Async Inference
-If you have used Async Inference in your code, benchmark the results and explain its effects on power and performance of your project.
+
+The Aync Infernce API helps to improve performance with the advantage of processor threading ability to perform multiple inference at the same time. where as, at synchrounous inference API, the inference request are on the waiting queue until the previous inference request executed fully.
+The pipeline included with the network class help to set the operation at the start or stop cases.
 
 ### Edge Cases
 There will be certain situations that will break your inference flow. For instance, lighting changes or multiple people in the frame. Explain some of the edge cases you encountered in your project and how you solved them to make your project more robust.
+
+1. lighting changes in the screen shadow results in the interference in the detection of the person from the application. 
+2. Multiple people detection results unclassify person and only one person gets detected nearby screen side
+3. Model couldnt process on the CPU, GPU
+4. Limitation to the processing data at low resolution not below then 480x720 scale.
+5. process operation at the low latency hardware not able to process INT or binary model operation.
 
 ### Reference 
 
