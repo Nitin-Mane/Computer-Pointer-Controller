@@ -299,6 +299,10 @@ The input model which are process are first analysed with the Face Detection. Th
 ```
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_fd
 
+#### Output 
+
+![Face-detection-outcome](./media/benchmark/out_01.png)
+
 ```
 
 ### Head Pose Command: 
@@ -309,12 +313,19 @@ python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16
 
 ```
 
+#### Output 
+
+![Head-pose-outcome](./media/benchmark/out_05.png)
+
 ### Landmark Estimation Detection 
 The landmarks Estimation is the process for finding the region of the human face in the facial recoginition the model aspect finds the region of the eyes, nose, lips and chins which process to find the edge detection and map the region with the progressive region.
 
 ```
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_lm
 ```
+#### Output 
+
+![Landmark-outcome](./media/benchmark/out_02.png)
 
 ### Gaze Estimation Detection 
 The gaze estimation is the gesture points estimation tracking model which takes all the three model input and process it in such a way that it can show the region the user is looking and process it in real-time operation. the estimation is the combination of the facial detection and the pose estimation which provide the face and its postion masking and which the landmarks region changes the focus point of region also changes with the detection of eyes, nose and lips. In this case the main focus is given on the eyes and nose region.
@@ -322,6 +333,10 @@ The gaze estimation is the gesture points estimation tracking model which takes 
 ```
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_gm
 ```
+
+#### Output 
+
+![Face-detection-outcome](./media/benchmark/out_03.png)
 
 ### Mouse Controller Detection 
 The mouse controller detection is processed with the deep learning inference model which provide 3 different parameters and when the estimation rules match the requirement data of the the angle, pose and direction. the mose cursor is set to the control with the help of face detection algorithm for moving the direction where the eyes are looking and head pose is moving left, right, up and down. 
@@ -336,6 +351,10 @@ This is execution of overall running the model and checking the outcome mapped o
 ```
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_fc -o_hp _o_lm -o_gm -o_mc
 ```
+
+#### Output 
+
+![all-model-outcome](./media/benchmark/out_04.png)
 
 ## Documentation
 The computer pointer controller has many features which is demonstrated in the documentation. The primary focus was to execute the code and run all the model outcome in instance.
