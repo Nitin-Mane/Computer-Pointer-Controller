@@ -298,12 +298,10 @@ The input model which are process are first analysed with the Face Detection. Th
 
 ```
 python main.py -i bin/demo.mp4  -m_fd models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001.xml -m_hp models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -m_lm models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -m_gm models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -d_fd MYRIAD -d_hp MYRIAD -d_lm MYRIAD -d_gm MYRIAD -o results -o_fd
-
+```
 #### Output 
 
 ![Face-detection-outcome](./media/benchmark/out_01.png)
-
-```
 
 ### Head Pose Command: 
 The head pose estimation helps to find the pose and the direction of the person facing camera and process which way the user is looking at the angle and the model generate the x, y and z-axis which helps to find the pose estimation in the 3D region. 
